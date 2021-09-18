@@ -26,7 +26,7 @@ export const getWorks = async (req, res) => {
 export const getReport = async (req, res) => {
     try {
         const { id } = req.params
-        const report = Work.findOne({_id: id})
+        const report = await Work.findOne({_id: id})
         console.log(report)
         res.status(200).json(report)
     } catch (error) {

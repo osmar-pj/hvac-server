@@ -4,11 +4,11 @@ const router = Router();
 import * as helpCtrl from "../controllers/help.controller";
 import { authJwt } from "../middlewares";
 
-router.post("/", [authJwt.verifyToken], helpCtrl.createHelp)
+// router.post("/", [authJwt.verifyToken], helpCtrl.createHelp)
 
-router.get('/', [authJwt.verifyToken], helpCtrl.getHelp)
+// router.get('/', [authJwt.verifyToken], helpCtrl.getHelp)
 
-router.get('/:text', helpCtrl.text)
+router.get('/:id', [authJwt.verifyToken], helpCtrl.getQtyEquipos)
 
 // router.post('/', helpCtrl.createData)
 

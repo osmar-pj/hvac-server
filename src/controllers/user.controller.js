@@ -40,9 +40,6 @@ export const getWorker = async (req, res) => {
   try {
     const { id } = req.params
     const worker = await User.find({_id: id})
-    const filteredUsers = users.filter(user => {
-      return user.toString().toLowerCase().indexOf(user.toLowerCase()) >= 0
-    })
     res.status(200).json(worker)
   } catch (error) {
     return res.status(500).json(error)

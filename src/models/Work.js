@@ -21,6 +21,7 @@ const workSchema = new Schema(
             ref: "Backlog"
         }
     ],
+    status: String,
     startDate: Date,
     endDate: Date
   },
