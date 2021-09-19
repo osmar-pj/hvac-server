@@ -1,13 +1,16 @@
 import Work from '../models/Work'
 import Program from '../models/Program'
+import Equipo from '../models/Equipo'
 
 export const doWork = async (req, res) => {
     try {
         const newWork = new Work(req.body)
         await newWork.save()
         const id = req.body.program
-        const program = await Program.findOne({_id: id})
+        const program = await Program.findOne({_id: id}).populate('equipo')
         await program.updateOne({status: true})
+        const updateStatusEquipo = await Equipo.findOne({_id: program.equipo._id})
+        await updateStatusEquipo.updateOne({status: newWork.status})
         res.status(200).json({saved: true})
     } catch (error) {
         return res.status(500).json(error)

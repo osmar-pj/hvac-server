@@ -58,7 +58,7 @@ export const login = async (req, res) => {
     //   });
 
     const token = jwt.sign({ id: userFound._id }, config.SECRET, {
-      expiresIn: 60*60*24*7, // 1 week
+      expiresIn: 60*60*24*30, // 1 month
     });
 
     const user = Object.assign({}, {

@@ -48,7 +48,7 @@ export const getWorker = async (req, res) => {
 
 export const getWorkers = async (req, res) => {
   try {
-    const workers = await User.find({ name: { $nin: "admin"} }).populate("roles")
+    const workers = await User.find({ name: { $nin: "Admin"} }).populate("roles")
     res.status(200).json(workers)
   } catch (error) {
     return res.status(500).json(error)
@@ -57,7 +57,6 @@ export const getWorkers = async (req, res) => {
 
 export const updateWorker = async (req, res) => {
   try {
-    console.log(req.body, req.params)
     const { id } = req.params
     const valid = req.body.valid
     const foundRoles = await Role.find({ name: { $in: req.body.newRoles } });
@@ -73,7 +72,7 @@ export const updateWorker = async (req, res) => {
 export const searchWorker = async (req, res) => {
   try {
     const { name } = req.params
-    const workers = await User.find({ name: { $nin: "admin"} })
+    const workers = await User.find({ name: { $nin: "Admin"} })
     const filteredWorker = workers.filter(worker => {
       return worker.toString().toLowerCase().indexOf(name.toLowerCase()) >= 0
     })

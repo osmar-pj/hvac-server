@@ -192,6 +192,7 @@ export const createRoles = async () => {
       new Role({ name: "user" }).save(),
       new Role({ name: "moderator" }).save(),
       new Role({ name: "admin" }).save(),
+      new Role({ name: "visit" }).save(),
     ]);
     console.log(values);
     
@@ -203,10 +204,11 @@ export const createRoles = async () => {
     if (!user) {
       // create a new admin user
       await User.create({
-        name: "admin",
+        name: "Admin",
         lastname: '',
-        dni: "44672721",
-        cargo: "administrador",
+        dni: "42886899",
+        cargo: "Developer",
+        valid: true,
         password: await bcrypt.hash("admin123", 10),
         roles: roles.map((role) => role._id),
       });

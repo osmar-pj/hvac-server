@@ -6,7 +6,7 @@ import { authJwt } from "../middlewares";
 
 // router.post("/", [authJwt.verifyToken], helpCtrl.createHelp)
 
-// router.get('/', [authJwt.verifyToken], helpCtrl.getHelp)
+router.get('/', [authJwt.verifyToken], helpCtrl.getHelp)
 
 router.get('/:id', [authJwt.verifyToken], helpCtrl.getQtyEquipos)
 

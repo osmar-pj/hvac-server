@@ -1,4 +1,14 @@
 import Work from '../models/Work'
+import Help from '../models/Help'
+
+export const getHelp = async (req, res) => {
+    try {
+        const help = await Help.find()
+        res.json(help)
+    } catch (error) {
+        console.error(error)
+    }
+}
 
 export const getQtyEquipos = async (req, res) => {
     try {

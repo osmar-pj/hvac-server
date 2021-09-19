@@ -14,6 +14,7 @@ const equipoSchema = new Schema(
     ubicacion: String,
     area: String,
     image: String,
+    fabricacion: Date,
     components: {},
     status: {
       type: String,
